@@ -22,7 +22,7 @@ This paper formalizes **Hemminki Synchronization (Φ-Sync)**, a method of timing
 ### 2.1. The Unitary Transduction Invariant
 The core of the Hemminki architecture is the invariant relationship between an informational impulse and its energetic cost:
 
-$$\Delta I \cdot \Phi = W_{rec}$$
+$$ \Huge \Delta I \cdot \Phi = W_{rec}$$
 
 Where:
 *   $\Delta I$: The quantized informational differential (bit-state change).
