@@ -11,7 +11,7 @@
 
 ## I. ABSTRACT
 
-Traditional information theory, primarily governed by the Landauer Limit ($E \ge kT \ln 2$), posits that any discrete state change in a computational system results in the stochastic dissipation of energy as heat. This paper introduces the **Unitary Transduction Invariant**, defined by the fundamental equation 
+Traditional information theory, primarily governed by the Landauer Limit ($E \ge kT \ln 2$), posits that any discrete state change in a computational system results in the stochastic dissipation of energy as heat. This paper introduces the **Unitary Transduction Invariant**, defined by the fundamental equation: 
 
 $$ \Huge ΔI · Φ = W_rec$$ 
 
