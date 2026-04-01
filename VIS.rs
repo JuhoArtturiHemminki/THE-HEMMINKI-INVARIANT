@@ -4,6 +4,7 @@ use std::thread::sleep;
 
 const PHI: f64 = 1.618033988749895;
 const HEMMINKI_CONSTANT: f64 = 5.0832;
+const RECOVERY_RATE: f64 = 0.005;
 
 pub struct HemminkiCore {
     start_time: Instant,
@@ -24,9 +25,16 @@ impl HemminkiCore {
         Duration::from_nanos((phase * 1000.0) as u64)
     }
 
+    fn self_repair(&mut self, duration: Duration) {
+        let recovery = duration.as_nanos() as f64 * RECOVERY_RATE / 1000.0;
+        self.e_drift = (self.e_drift - recovery).max(0.0);
+    }
+
     pub fn execute_transduction(&mut self, bit_stream: &[u8]) -> Result<f64, String> {
         for (n, &bit) in bit_stream.iter().enumerate() {
             let window = self.phi_interval(n as u64);
+            
+            self.self_repair(window);
             sleep(window / 500); 
 
             let step_drift = if bit == 1 { 0.042 } else { 0.011 };
@@ -42,11 +50,11 @@ impl HemminkiCore {
 
 fn main() {
     let mut core = HemminkiCore::init();
-    let data = vec![1, 0, 1, 1, 0, 1, 0, 0, 1, 1];
+    let data = vec![1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1];
 
     match core.execute_transduction(&data) {
         Ok(final_drift) => {
-            println!("W_rec Active. Final E_drift: {:.4}", final_drift);
+            println!("W_rec Active. Stable Determinism. Final E_drift: {:.4}", final_drift);
         }
         Err(e) => {
             eprintln!("System Failure: {}", e);
