@@ -13,7 +13,7 @@
 
 Traditional information theory, primarily governed by the Landauer Limit ($E \ge kT \ln 2$), posits that any discrete state change in a computational system results in the stochastic dissipation of energy as heat. This paper introduces the **Unitary Transduction Invariant**, defined by the fundamental equation: 
 
-$$ \Huge ΔI · Φ = W_rec$$ 
+$$ \Huge ΔI · Φ = W_{rec}$$ 
 
 We demonstrate that by convolving an informational state transition ($\Delta I$) with the golden ratio phase-constant ($\Phi$), the resulting entropic variance is not lost to the environment. Instead, it is geometrically re-channeled into a coherent energetic state, defined as Recirculative Work ($W_{rec}$). This derivation proves that informational entropy is a function of phase-asymmetry, and that absolute determinism can be achieved through geometric synchronization.
 
